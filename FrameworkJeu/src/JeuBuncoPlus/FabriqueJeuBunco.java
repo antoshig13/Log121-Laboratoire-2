@@ -42,25 +42,28 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 	public void creerJeu() {
 		initialisation();
 
-		while (tourCourant < nombreDeTourTotal) { //Logique du jeu ICI
-			changerDeJoueur(); // Iteration cyclique dans la collection de Joueur.
+		while (tourCourant <= nombreDeTourTotal) { //Logique du jeu ICI
+			
+			System.out.println("Ceci est le #" + tourCourant + "tour(s)");
+			System.out.println(joueurCourant.toString());
 			while(!strategieCourante.estTourCourantTerminer()) {
 				lancerDes();
 				calculerScore();
 
 				try {
-					Thread.sleep(500);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-			
+			changerDeJoueur(); // Iteration cyclique dans la collection de Joueur.
 			if(seraitUnNouveauTour) {
 				seraitUnNouveauTour = false;
 				System.out.println("Changement de tour");
 				tourCourant++;
 			}
+			
 		}
 
 	}
@@ -68,9 +71,11 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 	 * Initialisation de l'environnement de gestion des tours
 	 */
 	private void initialisation() {
-		nombreDeTourTotal = 2;
+		nombreDeTourTotal = 6;
 		tourCourant = 1;
 		iterJoueur =  listeJoueurs.creerIterateur();
+		joueurCourant = (Joueur) iterJoueur.next();
+		//System.out.println("INIT AVEC " + joueurCourant.getNom());
 	}
 	/**
 	 * Itération à travers une CollectionDe et appel lanceDe sur chacun de ceux-ci.

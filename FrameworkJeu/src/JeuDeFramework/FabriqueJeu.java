@@ -40,7 +40,7 @@ public abstract class FabriqueJeu {
 			joueurCourant = (Joueur) iterJoueur.next();
 			seraitUnNouveauTour = true;
 		}
-		System.out.println("Joueur Actuel : " + joueurCourant.toString());
+		
 	}
 
 	public void calculerScore() {
