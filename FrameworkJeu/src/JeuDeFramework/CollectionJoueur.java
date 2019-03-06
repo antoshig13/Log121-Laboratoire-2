@@ -20,6 +20,9 @@ public class CollectionJoueur implements Iterable{
         } 
 		
 	}
+	public int size() {
+		return this.listJoueur.length-1;
+	}
 	public Iterator creerIterateur() {
 	      return new IteratorJoueur();
 	   }

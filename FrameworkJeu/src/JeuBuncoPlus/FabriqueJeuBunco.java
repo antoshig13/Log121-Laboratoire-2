@@ -60,7 +60,9 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 			changerDeJoueur(); // Iteration cyclique dans la collection de Joueur.
 			if(seraitUnNouveauTour) {
 				seraitUnNouveauTour = false;
+				if(tourCourant != nombreDeTourTotal) {
 				System.out.println("Changement de tour");
+				}
 				tourCourant++;
 			}
 			

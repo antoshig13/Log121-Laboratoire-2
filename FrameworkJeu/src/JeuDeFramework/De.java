@@ -58,6 +58,20 @@ public class De {
 	public void setFaceMin(int faceMin) {
 		this.faceMin = faceMin;
 	}
+	/**
+	 * Setter de la valeur du dé. Utilisé pour les tests.
+	 * Si les valeurs dépasses les bornes min/max alors elle prendra la valeur de la borne qu'elle dépasse.
+	 * @param i la valeur du dé.
+	 */
+	public void setFace(int i) {
+		if(i<faceMin) {
+			this.face = faceMin;
+		}else if(i>faceMax) {
+			this.face = faceMax;
+		}else{
+			this.face = i;
+		}
+	}
 
 	
 }
