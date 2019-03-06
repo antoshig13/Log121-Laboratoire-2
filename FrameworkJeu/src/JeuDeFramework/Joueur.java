@@ -11,6 +11,10 @@ public class Joueur {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+	public void ajouterScore(int scoreAjouter) {
+		this.score += scoreAjouter;
+	}
 
 	/*
 	 * Constructeur joueur

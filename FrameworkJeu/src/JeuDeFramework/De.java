@@ -40,7 +40,7 @@ public class De {
 		this.nbFaces = nbFaces;
 	}
 	public String toString(){
-		lanceDe();
+		//lanceDe();
 		return "La face est :"+Face;
 		
 	}

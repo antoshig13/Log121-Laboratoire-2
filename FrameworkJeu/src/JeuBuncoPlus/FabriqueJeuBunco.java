@@ -1,12 +1,15 @@
 package JeuBuncoPlus;
 
+
+import java.util.Collections;
+
 import JeuDeFramework.*;
 
 public class FabriqueJeuBunco extends FabriqueJeu {
 	
-	protected CollectionJoueur listeJoueurs;/* = new CollectionJoueur(4);*/
-    protected CollectionDe listeDes; /* = new CollectionDe(3);*/
-    protected IStrategie strategieCourante;
+
+	private int tourCourant;
+	private boolean changerJoueur;
 	
     
     
@@ -39,15 +42,34 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 
 	@Override
 	public void creerJeu() {
-		nombreDeTourTotal = 6;
-		tourCourant = 0;
-		while (tourCourant < nombreDeTourTotal) { //Logique du jeu ICI			
-			for (Iterator i = listeDes.creerIterateur(); i.hasNext(); ) { 
-			       System.out.println(i.next()); 
-			}
+		initialisation();
+		
+		while (tourCourant < nombreDeTourTotal) { //Logique du jeu ICI
+			changerDeJoueur(); // Iteration cyclique dans la collection de Joueur.
+				while(!strategieCourante.estTourCourantTerminer()) {
+					lancerDes();
+					calculerScore();
+					}
 			tourCourant++;
 		}
 
+	}
+	/**
+	 * Initialisation de l'environnement de gestion des tours
+	 */
+	private void initialisation() {
+		nombreDeTourTotal = 6;
+		tourCourant = 0;
+		iterJoueur =  listeJoueurs.creerIterateur();
+	}
+	/**
+	 * Itération à travers une CollectionDe et appel lanceDe sur chacun de ceux-ci.
+	 */
+	private void lancerDes(){
+		for (Iterator i = listeDes.creerIterateur(); i.hasNext(); ) {
+			De de = (De) i.next();
+			de.lanceDe(); // On roule chaque dés
+		}
 	}
 
 	@Override

@@ -30,6 +30,9 @@ public class CollectionDe implements Iterable{
 	public Iterator creerIterateur() {
 	      return new IteratorDe();
 	   }
+	public int size() {
+		return listDe.length-1;
+	}
 	private class IteratorDe implements Iterator {
 
 	      int index;
