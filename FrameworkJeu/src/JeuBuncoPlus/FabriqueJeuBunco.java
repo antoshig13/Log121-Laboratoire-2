@@ -6,6 +6,7 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 	
 	protected CollectionJoueur listeJoueurs = new CollectionJoueur(4);
     protected CollectionDe listeDes = new CollectionDe(3);
+    protected IStrategie strategieCourante;
 	
 	@Override		
 	public void creerJoueurs() {
@@ -34,8 +35,17 @@ public class FabriqueJeuBunco extends FabriqueJeu {
 
 	@Override
 	public void creerJeu() {
-		// TODO Auto-generated method stub
-		
+		this.nombreDeTourTotal = 6;
+		this.tourCourant = 0;
+		while (tourCourant < nombreDeTourTotal) { //Logique du jeu ICI
+			
+		}
+
+	}
+
+	@Override
+	public void attacherStrategie() {
+		this.strategieCourante = new StrategieBunco();
 	}
 	
 }

@@ -2,6 +2,9 @@ package JeuDeFramework;
 
 public abstract class FabriqueJeu {
 	
+	protected int nombreDeTourTotal;
+	protected int tourCourant;
+	
 	public FabriqueJeu() {
 		fabriqueJeu();
 	}
@@ -10,6 +13,7 @@ public abstract class FabriqueJeu {
 	public abstract void creerJoueurs();
 	public abstract void creerDes();
 	public abstract void creerJeu();
+	public abstract void attacherStrategie();
 	
 	///Methode template
 	public void fabriqueJeu() {
@@ -17,4 +21,5 @@ public abstract class FabriqueJeu {
 		creerDes();
 		creerJeu();	
 	}
+
 }
