@@ -6,15 +6,17 @@ public class De {
 	private int nbFaces;
 	private int faceMin;
 	private int faceMax;
-	private int Face;
+	private int face;
 	
 	
 	/*
 	 * Constructeur Dé 
 	 */
 	public De(int nbFaces) {
+		this.face = -1;
 		this.nbFaces = nbFaces;
 		this.faceMax = nbFaces;
+		this.faceMin = 1;
 	}
 	public void lanceDe(){
 		
@@ -23,14 +25,14 @@ public class De {
 			}
 
 			Random r = new Random();
-			this.Face=r.nextInt((faceMax - faceMin) + 1) + faceMin;
+			this.face=r.nextInt((faceMax - faceMin) + 1) + faceMin;
 	}
 
 	/*
 	 * Obtenir la face obtenu 
 	 */
 	public int getFacesObtenu() {
-		return nbFaces;
+		return face;
 	}
 
 	/*
@@ -41,7 +43,7 @@ public class De {
 	}
 	public String toString(){
 		//lanceDe();
-		return "La face est :"+Face;
+		return "La face est :"+face;
 		
 	}
 	public int getFaceMax() {

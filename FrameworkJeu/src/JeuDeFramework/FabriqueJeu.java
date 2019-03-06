@@ -9,6 +9,7 @@ public abstract class FabriqueJeu {
 	protected CollectionJoueur listeJoueurs;
 	protected CollectionDe listeDes;
 	protected Iterator iterJoueur;
+	protected boolean seraitUnNouveauTour = false;
 
 	public FabriqueJeu() {
 		fabriqueJeu();
@@ -29,7 +30,7 @@ public abstract class FabriqueJeu {
 	}
 
 	/**
-	 * Iteration cyclique à travers une collection de joueurs.
+	 * Iteration cyclique à travers une collection de joueurs. Un reset correspond à un nouveau tour.
 	 */
 	public void changerDeJoueur() {
 		if(iterJoueur.hasNext()) {
@@ -37,7 +38,9 @@ public abstract class FabriqueJeu {
 		}else {
 			iterJoueur = listeJoueurs.creerIterateur(); //RESET
 			joueurCourant = (Joueur) iterJoueur.next();
+			seraitUnNouveauTour = true;
 		}
+		System.out.println("Joueur Actuel : " + joueurCourant.toString());
 	}
 
 	public void calculerScore() {
