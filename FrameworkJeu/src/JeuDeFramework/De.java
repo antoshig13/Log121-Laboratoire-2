@@ -1,7 +1,7 @@
 package JeuDeFramework;
 import java.util.Random;
 
-public class De {
+public class De implements Comparable<De> {
 	
 	private int nbFaces;
 	private int faceMin;
@@ -34,6 +34,12 @@ public class De {
 	public int getFacesObtenu() {
 		return face;
 	}
+	/*
+	 * Set la face obtenu 
+	 */
+	public void setFacesObtenu(int i) {
+		 this.face=i;
+	}
 
 	/*
 	 * 
@@ -58,6 +64,16 @@ public class De {
 	public void setFaceMin(int faceMin) {
 		this.faceMin = faceMin;
 	}
-
+	@Override
+	public int compareTo(De de){   
+		if(de==null)  throw new IllegalArgumentException();
+		if(this.face==de.getFacesObtenu())  
+		      return 0;  
+		   else if(this.face>de.getFacesObtenu())  
+		      return 1;  
+		   else  
+		      return -1; 
+ 
+	}
 	
 }

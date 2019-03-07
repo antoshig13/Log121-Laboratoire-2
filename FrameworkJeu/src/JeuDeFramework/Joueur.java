@@ -1,9 +1,10 @@
 package JeuDeFramework;
 
-public class Joueur {
+public class Joueur implements Comparable<Joueur>{
 	
 	private String nom;
 	private int score;
+	
 	public int getScore() {
 		return score;
 	}
@@ -37,6 +38,18 @@ public class Joueur {
 		return "Le Nom du Joueur:"+nom+"\n"+"Son Score est :"+score;
 		
 	}
+
+	@Override
+	public int compareTo(Joueur joueur){  
+		if(joueur==null)  throw new IllegalArgumentException();
+		if(this.score==joueur.getScore())  
+		      return 0;  
+		   else if(this.score>joueur.getScore())  
+		      return 1;  
+		   else  
+		      return -1;  
+		}
+
 	
 
 }
