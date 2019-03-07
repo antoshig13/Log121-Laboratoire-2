@@ -24,27 +24,27 @@ public class DeTest {
 	}
 	@Test
 	public void deSuperieurTest(){
-		de1.setFacesObtenu(4);
-		de2.setFacesObtenu(5);
+		de1.setFace(4);
+		de2.setFace(5);
 		assertTrue(de1.compareTo(de2)==-1);
 	}
 
 	@Test
 	public void deInferieurTest(){
-		de1.setFacesObtenu(4);
-		de2.setFacesObtenu(5);
+		de1.setFace(4);
+		de2.setFace(5);
 		assertTrue(de2.compareTo(de1)==1);
 	}
 
 	@Test
 	public void memeDeTest(){
-		de1.setFacesObtenu(4);
+		de1.setFace(4);
 		assertTrue(de1.compareTo(de1)==0);
 	}
 
 	@Test(expected=IllegalArgumentException.class)
 	public void deNullTest(){
-		de1.setFacesObtenu(4);
+		de1.setFace(4);
 		de1.compareTo(null);
 	}
 
