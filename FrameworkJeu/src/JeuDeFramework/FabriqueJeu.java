@@ -46,6 +46,10 @@ public abstract class FabriqueJeu {
 	public void calculerScore() {
 		strategieCourante.calculPoint(tourCourant, listeDes, joueurCourant);
 	}
+	
+	public IStrategie getStrategieCourante() {
+		return this.strategieCourante;
+	}
 
 	public void setJoueurCourant(Joueur j) {
 		this.joueurCourant = j;

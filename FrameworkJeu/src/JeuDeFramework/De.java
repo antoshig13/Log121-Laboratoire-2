@@ -10,7 +10,7 @@ public class De implements Comparable<De> {
 	
 	
 	/*
-	 * Constructeur Dé 
+	 * Constructeur DÃ© 
 	 */
 	public De(int nbFaces) {
 		this.face = -1;
@@ -64,7 +64,21 @@ public class De implements Comparable<De> {
 	public void setFaceMin(int faceMin) {
 		this.faceMin = faceMin;
 	}
-	@Override
+	/**
+	 * Setter de la valeur du dé. Utilisé pour les tests.
+	 * Si les valeurs dépasses les bornes min/max alors elle prendra la valeur de la borne qu'elle dépasse.
+	 * @param i la valeur du dé.
+	 */
+	public void setFace(int i) {
+		if(i<faceMin) {
+			this.face = faceMin;
+		}else if(i>faceMax) {
+			this.face = faceMax;
+		}else{
+			this.face = i;
+		}
+	}
+  @Override
 	public int compareTo(De de){   
 		if(de==null)  throw new IllegalArgumentException();
 		if(this.face==de.getFacesObtenu())  
@@ -75,5 +89,6 @@ public class De implements Comparable<De> {
 		      return -1; 
  
 	}
+
 	
 }
